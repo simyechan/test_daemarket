@@ -1,0 +1,32 @@
+
+spring:
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  datasource:
+    url: jdbc:mysql://localhost:3306/test
+    username: root
+    password: "0000"
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    properties:
+      hibernate:
+        format_sql: true
+        show_sql: true
+    hibernate:
+      ddl-auto: update
+    database: mysql
+
+  redis:
+    host: ${REDIS_HOST:localhost}
+    port: ${REDIS_PORT:6379}
+
+
+  jwt:
+    secret-key: ${JWT_SECRET_KEY:souso}
+    access-exp: ${JWT_ACCESS_EXP:7200}
+    refresh-exp: ${JWT_REFRESH_EXP:123456789}
+
+server:
+  port: 8714
